@@ -1,0 +1,23 @@
+{% extends "baseTemplate.html" %}
+{% from "_formHelpers.html" import render_field %}
+{% block title %}Delete user{% endblock %}
+{% block maincontent %}
+
+<div style="text-align: center;">
+<form method="post" style="width: 50%; display: inline-block;">
+    <h2>Delete</h2>
+    {{ form.csrf_token }}
+    <div style="text-align: left; color: #D10024;">
+        {{ render_field(form.Answer) }}
+    </div>
+
+    <div>
+        <button style="float: right;" type="submit">
+          Submit
+        </button>
+      </div>
+</form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "basetemplate.html" %}
+
+{% block title %}
+Startsidan
+{% endblock %}
+
+
+{% block content %}
+
+<div class="main">
+  <h2>General Statistics:</h2> <br>
+  <ul >
+      <li >Antal Kunder: <strong> {{AntalKunder}} </strong></li> <br>
+      <li >Antal Konton: <strong> {{AllaKonto}} </strong></li> <br>
+      <li >Totalt saldo: <strong> {{AntalSaldo}} </strong></li> <br>
+  </ul>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "baseTemplate.html" %}
+{% from "_formHelpers.html" import render_field %}
+{% block title %}Edit user{% endblock %}
+{% block maincontent %}
+
+<div style="text-align: center;">
+<form method="post" style="width: 50%; display: inline-block;">
+    <h2>Edit</h2>
+    {{ form.csrf_token }}
+    <div style="text-align: left; color: #D10024;">
+        {{ render_field(form.first_name) }}
+    </div>
+
+    <div style="text-align: left; color: #D10024;">
+        {{ render_field(form.last_name) }}
+    </div>
+
+    <div>
+        <a style="color:blue; float: left;"href="{{ url_for('user.change_password') }}">Change password</a>
+        <button style="float: right;" type="submit">
+          Submit
+        </button>
+      </div>
+</form>
+</div>
+
+
+{% endblock %}

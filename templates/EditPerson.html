@@ -1,0 +1,50 @@
+{% extends "basetemplate.html" %} 
+{% from "_formHelpers.html" import render_field %}
+{% block title %} 
+View Person {{ person.namn}}
+{% endblock %} 
+
+
+
+
+{% block content %}
+
+
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+        <div class="row m-t-30">
+            <div class="col-md-12">
+                <form method="post" class="">
+                    {{ form.csrf_token }}
+                    <div class="card">
+                    <div class="card-header">
+                        <strong>Edit</strong> Person with id: {{ id }}
+                    </div>
+                    <div class="card-body card-block">
+                        {{ render_field(form.Gname) }}
+                        {{ render_field(form.Sname) }}
+                        {{ render_field(form.zipcode) }}
+                        {{ render_field(form.city) }} 
+                        {{ render_field(form.Telephone) }}
+                        {{ render_field(form.EmailAddress) }}
+                        {{ render_field(form.Birthday) }}
+                        {{ render_field(form.NationalId) }}  
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-dot-circle-o"></i> Save
+                        </button>
+                        <button type="reset" class="btn btn-danger btn-sm">
+                            <i class="fa fa-ban"></i> Reset
+                        </button>
+                    </div>
+                </div>  
+            </form> 
+                  
+            </div>
+        </div>        
+    </div>
+</div>
+
+
+{% endblock %}

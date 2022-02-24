@@ -1,0 +1,51 @@
+{% extends "basetemplate.html" %}
+
+{% block title %}
+View Account
+{% endblock %}
+
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h2>View Account number: {{ konto.Id }}</h2>
+    </div>
+    <br>
+    <div class="card-body card-block">
+        <div style="color:rgb(23, 8, 226)"><strong>Balance: </strong> {{ konto.Balance}} </div>
+    </div>
+    <br>
+
+    
+
+    <div class="card-body card-block">
+        <div>
+        <div style="color:rgb(15, 87, 39)"><h3>Transaktions:</h3></div>
+        <br>
+        {% for trans in transaktions %}
+            <div><strong>Transaktion Id: </strong> {{ trans.Id }} </div>
+            <div><strong>Transaktion Type: </strong> {{ trans.Type }} </div>
+            <div><strong>Operation: </strong> {{ trans.Operation}} </div>
+            <div><strong>Date: </strong> {{ trans.Date}} </div>
+            <div><strong>Amount: </strong> {{ trans.Amount}} </div>
+            <div><strong>New Balance: </strong> {{ trans.NewBalance}} </div>
+            <p>-----------------------------------</p>
+        {% endfor %}
+        </div>
+    </div>
+
+    <div class="card-body card-block">
+        <a class="btn" href="{{ url_for('addTransaktion', id=konto.Id)  }}"> New Deposit / Withdrawal</a>   
+        <a class="btn" href="{{ url_for('addTransfer', id=konto.Id)  }}"> New Transfer</a>  
+    </div>
+
+
+</div>
+
+
+
+
+
+{% endblock %}
+

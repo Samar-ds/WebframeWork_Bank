@@ -1,0 +1,26 @@
+{% extends "basetemplate.html" %}
+
+{% block title %}
+IdError
+{% endblock %}
+
+
+{% block content %}
+
+<div class="card">
+
+  <div class="card-header">
+    <h3>Oops! account Id is not valid.</h3>
+  </div>
+
+  <br>
+  <br>
+
+  <div class="card-body card-block">
+    <a class="btn" href="{{ url_for('visaKonton', id=idd)  }}"> Return to account</a>  
+</div>
+
+</div>
+
+
+{% endblock %}

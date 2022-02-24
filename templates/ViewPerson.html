@@ -1,0 +1,66 @@
+{% extends "basetemplate.html" %}
+
+{% block title %}
+View Person
+{% endblock %}
+
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h2>View Person with id: {{ person.Id }}</h2>
+    </div>
+    <br>
+    <div class="card-body card-block">
+        <div>
+        <div style="color:rgb(15, 87, 39)"><h3>General info:</h3></div>
+        <div><strong>Name: </strong> {{ person.GivenName }}  {{ person.Surname }} </div>
+        <div><strong>Address: </strong> {{ person.Streetaddress}} , {{ person.City }}  </div>
+        <div><strong>Zipcode: </strong>  {{ person.Zipcode}} - {{ person.Country }}  </div>
+        <div><strong>Telephone: </strong> {{ person.Telephone }}  </div>
+        <div><strong>Email: </strong> {{ person.EmailAddress }}  </div>
+        <div><strong>Birthday: </strong> {{ person.Birthday }}  </div>
+        <div><strong>National-Id: </strong> {{ person.NationalId }}  </div>
+        </div>
+                    
+        <div style="color:rgb(23, 8, 226)">
+            <a href="{{ url_for('editPerson', id=person.Id )  }}"><i class='bx bx-edit'></i>Edit</a>
+        </div>
+    </div>  
+    <p style="color:rgb(15, 15, 87)">----------------------------------</p>
+    <br>
+    
+
+    <div class="card-body card-block">
+        <div>
+        <div style="color:rgb(15, 87, 39)"><h3>Accounts Info:</h3></div>
+        {% for account in accounts %}
+            <div><strong>Account Number: </strong>  
+                <a href="{{ url_for('visaKonton', id=account.Id )  }}"><i style="color:rgb(23, 8, 226)" class='bx bxs-credit-card'></i>{{ account.Id }}</a>
+            </div>
+            <div><strong>AccountType: </strong> {{ account.AccountType }} </div>
+            <div><strong>Created: </strong> {{ account.Created}} </div>
+            <div><strong>Balance: </strong> {{ account.Balance}} </div>
+            <p>-----------------------------------</p>
+        {% endfor %}
+        </div>
+    </div>
+
+    <div class="card-body card-block">
+        <div>
+        <div style="color:rgb(24, 138, 62)"><h4>Total Balance: {{ Balance }}</h4></div>
+        </div>
+    </div>
+
+
+            
+
+</div>
+
+
+
+
+
+{% endblock %}
+

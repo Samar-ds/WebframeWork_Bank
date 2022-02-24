@@ -1,0 +1,28 @@
+{% extends "baseTemplate.html" %}
+{% from "_formHelpers.html" import render_field %}
+{% block title %}My account{% endblock %}
+{% block maincontent %}
+
+
+<table class="categories" style="font-size: 20px;">
+    <h2>My account </h2>
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.email }}</td>
+        <td><a style="float: right; color: #D10024;" href="{{ url_for('users.EditUsers') }}"><i class='bx bxs-edit'></i></a></td>
+        <td><a style="float: right; color: #D10024;" href="{{ url_for('users.DeleteUsers') }}"><i class='bx bx-trash'></i></a></td>
+    </tr>
+</table>
+
+
+{% endblock %}

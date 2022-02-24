@@ -1,0 +1,137 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}" asp-append-version="true">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'  rel='stylesheet'>
+    <title>
+        {% block title %}
+        {% endblock %}
+       </title>
+
+    <style>
+
+        main {
+            background-image: url('static/img/clouds2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <header class="header">
+            <div class="header__avatar">
+                {%  if current_user.is_authenticated    %}
+                    <i class='bx bxs-user-check'></i>
+                    Logged in as: "{{ current_user.email }}"
+                {%  else    %}
+                    <h3>Välkommen till SA-Banken</h3>
+                {%  endif    %}
+            </div>
+        </header>
+
+          <aside class="sidenav">
+              <div class="sidenav__logo">
+                <i style="color:rgb(90, 8, 86)" class="bx bx-leaf"></i>
+                <span class="sidenav__logo_name">SA-Banken</span>
+              </div>
+              <ul class="sidenav__list">
+                  <li class="sidenav__list-item {{ 'active' if activePage == 'startPage' }}">
+                      <a href="/">
+                          <i class="bx bxs-home"></i>
+                          Start sida</a>
+                  </li>
+
+                  <li class="sidenav__list-item {{ 'active' if activePage == 'personerPage' }}">
+                      <a href="{{ url_for('personerPage') }}">
+                          <i class="bx bxs-user"></i>
+                          Personer</a>
+                  </li>
+
+                {%  if current_user.is_authenticated    %}
+                <li class="sidenav__list-item">
+                    <a href="{{ url_for('user.logout') }}">
+                        <i class="bx bx-log-out"></i>
+                        Logout</a>
+                </li>
+
+                {%  else    %}
+                    <li class="sidenav__list-item">
+                    <a href="{{ url_for('user.login') }}">
+                        <i class="bx bx-log-in"></i>
+                        Logga in</a>
+                   </li>
+
+                   <li class="sidenav__list-item">
+                    <a href="{{ url_for('user.register') }}">
+                        <i class='bx bxs-user-plus'></i>
+                        Register</a>
+                   </li>
+
+
+                {%  endif    %}
+              </ul>
+
+              
+              <footer class="sidenav__footer">
+                <div class="sidenav__list-item">
+                    <div class="collapsible">
+                        <i class='bx bxs-chevrons-down'> Contact us</i>
+                    </div>
+                    
+                    <ul style="font-size: 10px;" class="content">
+                        <li><a href="#"><i class='bx bx-mail-send'></i>Email</a></li>
+                        <li><a href="#"><i class='bx bxl-facebook-circle'></i>Facebook</a></li>
+                        <li><a href="#"><i class='bx bxl-twitter'></i>Twitter</a></li>
+                    </ul>
+                    
+                    
+                </div>
+              </footer>
+            
+          </aside>     
+
+          <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                  content.style.display = "none";
+                } else {
+                  content.style.display = "block";
+                }
+              });
+            }
+            </script>
+
+        <main class="main">
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <footer class="footer">
+            {% block footer %}
+                <div class="footer__copyright">&copy; 2022 Samar</div>
+            {% endblock %}
+        </footer>      
+    </div>
+
+
+
+</body>
+</html>

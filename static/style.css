@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+:root {
+    --main-color: #ecbce2;
+    --color-dark: #e090cf;
+    --back-color: #87ccee;
+    --header-back-color: #87ccee;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+li {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas:
+        "sidenav header"
+        "sidenav main"
+        "sidenav footer";
+    height: 100vh;
+}
+/* Give every child element its grid name */
+.header {
+    grid-area: header;
+}
+
+.sidenav {
+    display: flex; /* Will be hidden on mobile */
+    flex-direction: column;
+    grid-area: sidenav;
+    background-color: var(--main-color);
+}
+
+
+.main {
+    grid-area: main;
+    /* background-color: var(--back-color); */
+    background-image: url('img/clouds2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+}
+
+.footer {
+    grid-area: footer;
+    padding-left: 20px;
+    background-color: var(--header-back-color);
+}
+
+
+
+
+.header, .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--header-back-color);
+}
+
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background: #87ccee;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    z-index: 100;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+
+.header__search {
+    position: relative;
+    height: 50px;
+    max-width: 550px;
+    width: 100%;
+    margin: 0 20px;
+}
+
+    .header__search input {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        background: #F5F6FA;
+        border: 2px solid #EFEEF1;
+        border-radius: 6px;
+        font-size: 18px;
+        padding: 0 15px;
+    }
+
+    .header__search .bx-search {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        background: #2697FF;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 4px;
+        line-height: 40px;
+        text-align: center;
+        color: #fff;
+        font-size: 22px;
+    }
+
+.sidenav__list {
+    padding: 0;
+    margin-top: 35px;
+    list-style-type: none;
+}
+
+.sidenav__list-item {
+    padding: 30px;
+    color: rgb(59, 83, 223);
+    font-size: 35px;
+}
+
+.sidenav__footer {
+    height: 50px;
+    position:absolute;
+    bottom: 100px;;
+}
+
+
+.sidenav__logo {
+    color: rgb(90, 8, 86);
+    height: 50px;
+    margin-top: 35px;
+    display: flex;
+    align-items: center;
+}
+
+    .sidenav__logo i {
+        font-size: 28px;
+        font-weight: 500;
+        color: #fff;
+        min-width: 60px;
+        text-align: center
+    }
+
+.sidenav__logo_name {
+    color: rgb(90, 8, 86);
+    font-size: 24px;
+    font-weight: 500;
+}
+
+
+.active {
+    background: var(--color-dark);
+}
+
+.sidenav__list-item i {
+    min-width: 30px;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(114, 115, 119);
+    margin-right: 10px;
+}
+
+
+.sidenav__list-item a {
+    font-size: 25px;
+    line-height: 22px;
+    color: rgb(114, 115, 119);
+    display: flex;
+    align-items: center;
+}
+
+
+.sidenav__list-item:hover {
+    background: var(--color-dark);
+    cursor: pointer;
+}
+
+.main {
+    padding-top: 40px;
+    padding-left: 50px;
+    padding-right: 20px;
+    font-size: 25px;
+    align-items: center;
+}
+
+.card h1 {
+    border-bottom: 1px solid #ced4da;
+    margin-bottom: 30px;
+}
+
+.table {
+    margin-bottom: 30px;
+}
+    .table th {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 15px 20px;
+}
+
+    .table td {
+        font-size: 14px;
+        font-weight: 400;
+        padding: 15px 20px;
+}
+
+.btn {
+    color: #fff;
+    background: #0A2558;
+    padding: 0.25em 0.75em;
+    font-size: 1em;
+    font-weight: 400;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+.form-group, .form-check {
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+
+
+
+.card {
+    width: 80%;
+    background: #fff;
+    padding: 20px 30px;
+    margin: 0 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+}
+
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+small {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+
+
+.field-validation-error {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+
+td i {
+    font-size: 30px;
+}
+
+/* ---- Samar: collapsable manu ---- */
+
+.collapsible {
+    /* padding: 20px; */
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 25px;
+    margin-top: 15px;
+    line-height: 15px;
+    list-style-type: none;
+  }
+ 
+
+  .active, .collapsible:hover {
+    background-color: var(--color-dark);
+  }
+
+  .content {
+    padding: 8px;
+    display: none;
+    overflow: hidden;
+    font-size: 10px;
+    list-style-type: none;
+  }
+  .content i {
+    text-align: center;
+    font-size: 20px;
+    color: rgb(114, 115, 119);
+    margin-right: 10px;
+}
+
+
+.content a {
+    font-size: 15px;
+    line-height: 22px;
+    color: rgb(114, 115, 119);
+    display: flex;
+    align-items: center;
+}
+
+#playlist tbody tr.even td {
+    background-color: #eee;
+  }
+  #playlist tbody tr.odd  td {
+    background-color: #fff;
+  }
+
+
+  .help-block{
+      color:red;
+  }
